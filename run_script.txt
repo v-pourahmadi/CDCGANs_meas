@@ -1,0 +1,128 @@
+floyd logs -u ID
+
+floyd output -u ID
+---------------------------
+
+with ch_meas - Z_dim=100
+-----------------
+floyd run --gpu --env tensorflow-1.0 --data /vahid/datasets/ch_meas/1:ch_meas  "python main.py --dataset ch_meas --input_height=72 --output_height=72 --is_crop True --is_train --sample_dir ch_meas --checkpoint_dir checkpoint --on_cloud=1"
+
+
+
+floyd run --gpu --env tensorflow-1.0 --data /vahid/datasets/ch_meas/1:ch_meas --data /vahid/projects/dcgan_ch_meas/14/output:PastOutput "python main.py --dataset ch_meas --input_height=72 --output_height=72 --is_crop True --is_train --sample_dir ch_meas --checkpoint_dir checkpoint  --checkpoint_dir_read /PastOutput/checkpoint/ --on_cloud=1"
+
+python main.py --dataset ch_meas --input_height=72 --output_height=72 --lc_dim=2 --is_crop True --is_train --sample_dir ch_meas --checkpoint_dir checkpoint --on_cloud=0
+
+
+
+python Complete_my.py --Test_img ./TestData/ch_meas/ --Outdir ./OutData --dataset ch_meas --visualize True --maskType center --is_crop False --input_height=72 --output_height=72 
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------
+
+
+
+
+%run main.py --dataset celebA --input_height=108 --is_train --is_crop True --visualize True --sample_dir ./samples/Wlan_channel
+
+
+%run 
+python Complete_my.py --Test_img ./TestData/celebA/ --Outdir ./OutData --dataset celebA --visualize True --maskType center --is_crop True --input_height=108 
+
+python main.py --dataset celebA --input_height=108 --is_crop True --visualize True --sample_dir ./samples/celebA
+
+
+python main.py --dataset Wlan_channel --input_height=30 --output_height=30 --is_train --visualize True --sample_dir ./samples/Wlan_channel
+
+
+Complete_my.py --Test_img ./TestData/Wlan_channel/ --Outdir ./OutData --dataset Wlan_channel  --maskType center --input_height=30 --output_height=30
+
+python main.py --dataset mnist --input_height=28 --output_height=28 --c_dim=1 --is_train  --visualize True --sample_dir ./samples/mnist
+
+
+
+floyd run --data XUdA3obxDjehP8uGrQt7Wa "ls -la /input"
+
+floyd run --gpu --data XUdA3obxDjehP8uGrQt7Wa "python main.py --dataset celebA --input_height=108 --is_crop True --is_train --visualize True --sample_dir /output/celebA"
+
+floyd logs AKpnXqj9BEU6d8KhmygTyb -t
+
+
+floyd run --data XUdA3obxDjehP8uGrQt7Wa "ls -la /input | head -4"
+
+
+floyd run --gpu --env tensorflow-1.0 --data gPkE6HimhRbXwjaLQSwFYX "python main.py --dataset celebA --input_height=108 --is_crop True --is_train --visualize True --sample_dir /output/celebA"
+
+
+
+
+with celeba 10000
+-----------------
+floyd run --gpu --env tensorflow-1.0 --data XUdA3obxDjehP8uGrQt7Wa "python main.py --dataset celebA --input_height=108 --is_crop True --is_train --visualize True --sample_dir /output/celebA"
+
+with full celeba
+-----------------
+floyd run --gpu --env tensorflow-1.0 --data N5JGDsKC38PRs4ptchv8D6 "python main.py --dataset celebA --input_height=108 --is_crop True --is_train --visualize True --sample_dir /output/celebA"
+
+
+
+
+floyd run --env tensorflow-1.0 "pip install tqdm; pip install requests; python download.py celebA"
+
+
+----
+DATA
+
+celebA_small
+vahid/celebA:1
+Id: XUdA3obxDjehP8uGrQt7Wa 
+
+celebA_zip:
+vahid/imgae_comp1:38
+output  LiDJp2QeoqhAiYNaXaD4kS
+
+celebA_extracted:
+vahid/test_script:9/output
+output  N5JGDsKC38PRs4ptchv8D6 
+
+my_data:
+vahid/mydata:1
+output  DS5hCzx7QK3zy2Ud8LQ6zj
+
+
+-------
+
+Model with small celebA
+vahid/imgae_comp1:34
+floyd logs Tsk3wX4SGEm8RCVbbCAYfB -t
+output  LiDJp2QeoqhAiYNaXaD4kS
+
+Model with full celebA
+vahid/imgae_comp1:45
+floyd logs ApjjKjSGxttMnkP7nSygxF -t
+
+
+
+
+with mydata - Z_dim=100
+-----------------
+floyd run --gpu --env tensorflow-1.0 --data DS5hCzx7QK3zy2Ud8LQ6zj "python main.py --dataset mydata --input_height=30 --output_height=30 --is_crop True --is_train --sample_dir /output/mydata"
+
+https://www.floydhub.com/viewer/data/eTeqYSMmhMF6cSbfMX898k/XiDtsyi2SLfXnqcgaV9mbV/
+https://www.floydhub.com/api/v1/resources/SAGBkWr2GNnmBnsaHNs5g3?content=true
+
+
+with mydata - Z_dim=10
+-----------------
+
+floyd run --gpu --env tensorflow-1.0 --data DS5hCzx7QK3zy2Ud8LQ6zj "python main.py --dataset mydata --input_height=30 --output_height=30 --z_dim=10 --is_train --sample_dir /output/mydata"
+
+https://www.floydhub.com/api/v1/resources/WbH3eTRc6RbMYHoErow6MA?content=true
+https://www.floydhub.com/viewer/data/BgMDBa5iXMsf26oriA2Zei/EjpCf96BDxwSQXgLpdXxwT/
